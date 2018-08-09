@@ -63,7 +63,6 @@ if [[ ! -n "$KUDU_SYNC_CMD" ]]; then
     KUDU_SYNC_CMD=$APPDATA/npm/node_modules/kuduSync/bin/kuduSync
   fi
 fi
-
 ##################################################################################################################################
 # Deployment
 # ----------
