@@ -70,14 +70,16 @@ fi
 
 echo Handling NodeJS app deployment.
 # 1. Install npm packages
+NPM_CMD="/opt/nodejs/8.11.2/bin/npm"
+NODE_EXE="/opt/nodejs/8.11.2/bin/node"
+
 if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then
   cd "$DEPLOYMENT_SOURCE"
-  echo "Running npm install"
-  eval /opt/nodejs/9.4.0/bin/npm install
+  echo "Running $NPM_CMD install"
+  eval $NPM_CMD install 
   exitWithMessageOnError "npm install failed"
-    echo "Running npm rebuild"
-  eval /opt/nodejs/9.4.0/bin/npm rebuild
-  exitWithMessageOnError "npm rebuild failed"
+  eval $NPM_CMD run build 
+  exitWithMessageOnError "npm build failed"
  cd - > /dev/null
 fi
 
