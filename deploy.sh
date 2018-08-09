@@ -74,7 +74,7 @@ echo Handling NodeJS app deployment.
 if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then
   cd "$DEPLOYMENT_SOURCE"
   echo "Running npm install"
-  eval /opt/nodejs/10.1/bin/npm install
+  eval /opt/nodejs/9.4.0/bin/npm install
   exitWithMessageOnError "npm failed"
  cd - > /dev/null
 fi
