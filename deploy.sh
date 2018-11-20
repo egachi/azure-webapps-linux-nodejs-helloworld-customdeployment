@@ -63,22 +63,22 @@ if [[ ! -n "$KUDU_SYNC_CMD" ]]; then
     KUDU_SYNC_CMD=$APPDATA/npm/node_modules/kuduSync/bin/kuduSync
   fi
 fi
+
 ##################################################################################################################################
 # Deployment
 # ----------
 
-echo Handling NodeJS app deployment.
-# 1. Install npm packages
-NPM_CMD="/opt/nodejs/8.11.2/bin/npm"
-#NODE_EXE="/opt/nodejs/8.11.2/bin/node"
+echo Handling react app deployment.
 
+# 1. Install npm packages
 if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then
   cd "$DEPLOYMENT_SOURCE"
-  echo "Running $NPM_CMD install"
+  echo "Running npm install"
   eval npm install
-  exitWithMessageOnError "npm install failed"
-  #eval $NPM_CMD run build 
-  #exitWithMessageOnError "npm build failed"
+  exitWithMessageOnError "npm failed"
+  echo "Building react app"
+  eval npm run build
+  exitWithMessageOnError "react build failed"
  cd - > /dev/null
 fi
 
