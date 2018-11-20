@@ -76,9 +76,6 @@ if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then
   echo "Running npm install"
   eval npm install
   exitWithMessageOnError "npm failed"
-  echo "Building react app"
-  eval npm run build
-  exitWithMessageOnError "react build failed"
  cd - > /dev/null
 fi
 
